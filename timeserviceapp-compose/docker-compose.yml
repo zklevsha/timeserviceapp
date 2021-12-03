@@ -32,8 +32,8 @@ services:
     image: haproxy:2.5.0
     volumes:
       - type: bind
-        source: ./haproxy
-        target: /usr/local/etc/haproxy
+        source: ./haproxy/haproxy.cfg
+        target: /usr/local/etc/haproxy/haproxy.cfg
     depends_on:
       - "timeservice1"
       - "timeservice2"
