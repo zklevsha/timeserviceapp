@@ -1,0 +1,43 @@
+version: "3.9"
+services:
+  timeservice1:
+    hostname: timeservice1
+    image: zklevsha/timeserviceapp:0.1.0
+    environment:
+      - SERVICE_NAME=timeservice1
+      - PORT=1234
+    expose:
+      - "1234/tcp"
+
+  timeservice2:
+    hostname: timeservice2
+    image: zklevsha/timeserviceapp:0.1.0
+    environment:
+      - SERVICE_NAME=timeservice2
+      - PORT=1234
+    expose:
+      - "1234/tcp"
+
+  timeservice3:
+    hostname: timeservice3
+    image: zklevsha/timeserviceapp:0.1.0
+    environment:
+      - SERVICE_NAME=timeservice3
+      - PORT=1234
+    expose:
+      - "1234/tcp"
+
+  balancer1:
+    hostname: balancer1
+    image: haproxy:2.5.0
+    volumes:
+      - type: bind
+        source: ./haproxy
+        target: /usr/local/etc/haproxy
+    depends_on:
+      - "timeservice1"
+      - "timeservice2"
+      - "timeservice3"
+    ports:
+      - "80:80"
+      - "9000:9000"

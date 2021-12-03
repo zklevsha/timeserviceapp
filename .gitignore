@@ -1,0 +1,23 @@
+#Private data
+private*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+env*/
+dist/
+*.egg-info/
+poetry.lock
+build/
+.vscode
+
+# Debug
+*.xlsx
+*.csv
+*.log
+debug*
+*.timestamp
