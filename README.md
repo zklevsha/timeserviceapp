@@ -10,4 +10,4 @@ cd ./timeserviceapp-compose
 sudo docker-compose up
 ```
 This command will start 4 containers: 3 instances of timeservice app and 1 instance of haproxy. 
-Running service will be avaialable at `http:://docker_host_ip/get-time`
+Running service will be avaialable at `http://docker_host_ip/get-time`
